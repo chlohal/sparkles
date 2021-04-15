@@ -14,7 +14,10 @@
             text.style.left = (box.left + 46) + "px";
             text.style.top = (box.top + 48) + "px";
 
-            text.innerText = decodeURIComponent(window.location.pathname).substring(1).replace(/-/g, " ");
+            text.innerText = decodeURIComponent(window.location.pathname).substring(1).replace(/-/g, " ") || "edit me";
+            text.addEventListener("input", function() {
+                history.replaceState(null, "", "/" + encodeURI(text.innerText.replace(/ /g, "-")));
+            })
         });
     </script>
 
@@ -41,14 +44,15 @@
             text-align: right;
             font-size: 2rem;
             font-family: 'Comic Sans', cursive;
-            word-break: break-all;
+            word-break: break-word;
+            overflow-wrap: break-word
         }
     </style>
 </head>
 
 <body>
     <img src="/m3.png">
-    <span id="text"></span>
+    <span id="text" contenteditable=""></span>
 </body>
 
 </html>
