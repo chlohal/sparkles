@@ -5,10 +5,17 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>8.2.8 Tic Tac Toe Methods | Dinner Coding Time</title>
+    <title>h</title>
 
     <script>
-        
+        window.addEventListener("load", function() {
+            var box = document.querySelector("img").getBoundingClientRect();
+            var text = document.getElementById("text");
+            text.style.left = (box.left + 46) + "px";
+            text.style.top = (box.top + 48) + "px";
+
+            text.innerText = decodeURIComponent(window.location.pathname).substring(1).replace(/-/g, " ");
+        });
     </script>
 
     <style>
@@ -26,6 +33,14 @@
 
             background: -webkit-linear-gradient(90deg, hsla(356, 60%, 53%, 1) 0%, hsla(313, 60%, 33%, 1) 100%);
 
+        }
+        span {
+            display: block;
+            position: absolute;
+            width: 506px;
+            text-align: right;
+            font-size: large;
+            font-family: 'Comic Sans', cursive;
         }
     </style>
 </head>
